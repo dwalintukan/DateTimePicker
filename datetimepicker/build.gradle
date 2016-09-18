@@ -8,8 +8,12 @@ apply plugin: 'com.android.library'
 group = 'date-time-picker'
 version = 1.0
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 bintray {
-    user =  
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
 }
 
 android {
