@@ -15,16 +15,16 @@ import java.util.Date;
 
 /**
  * Activity with no UI to launch DatePickerDialog and then TimePickerDialog after.
- * Use REQUEST_CODE when using startActivityForResult.
- * Receive the Calendar object onActivityResult with KEY_SELECTED_DATE_TIME.
+ * Use DateTimePickerActivity.REQUEST_CODE when using startActivityForResult.
+ * Get the Calendar object in onActivityResult by calling getSelectedDateTime(Intent data).
  */
 public class DateTimePickerActivity extends Activity implements
         DatePickerDialog.OnDateSetListener,
         TimePickerDialog.OnTimeSetListener {
 
     public static final int REQUEST_CODE = 2000;
-    public static final String KEY_SELECTED_DATE_TIME = "selected_date_time";
 
+    private static final String KEY_SELECTED_DATE_TIME = "selected_date_time";
     private static final String KEY_DATE_SET = "date_set";
     private static final String KEY_THEME_RES_ID = "theme_res_id";
 
@@ -63,6 +63,14 @@ public class DateTimePickerActivity extends Activity implements
         intent.putExtra(KEY_SELECTED_DATE_TIME, calendar);
         intent.putExtra(KEY_THEME_RES_ID, dialogThemeResId);
         return intent;
+    }
+
+    public static Calendar getSelectedDateTime(Intent data) {
+        if (data != null) {
+            return (Calendar) data.getSerializableExtra(KEY_SELECTED_DATE_TIME);
+        } else {
+            return null;
+        }
     }
 
     @Override
