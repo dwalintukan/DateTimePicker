@@ -1,1 +1,3 @@
 include ':app', ':datetimepicker'
+
+rootProject.name = 'com.walintukan'

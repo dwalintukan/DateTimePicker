@@ -1,4 +1,16 @@
+plugins {
+    id "com.jfrog.bintray" version "1.7"
+    id "com.github.dcendents.android-maven" version "1.5"
+}
+
 apply plugin: 'com.android.library'
+
+group = 'date-time-picker'
+version = 1.0
+
+bintray {
+    user =  
+}
 
 android {
     compileSdkVersion 24
