@@ -14,6 +14,23 @@ properties.load(project.rootProject.file('local.properties').newDataInputStream(
 bintray {
     user = properties.getProperty("bintray.user")
     key = properties.getProperty("bintray.apikey")
+
+    pkg {
+        repo = 'maven'
+        name = 'date-time-picker'
+        websiteUrl = 'https://github.com/dwalintukan/DateTimePicker'
+        issueTrackerUrl = 'https://github.com/dwalintukan/DateTimePicker/issues'
+        vcsUrl = 'https://github.com/dwalintukan/DateTimePicker.git'
+        licenses = ['Apache-2.0']
+        labels = ['android', 'material design', 'DatePickerDialog', 'TimePickerDialog', 'date picker', 'time picker']
+        githubRepo = 'dwalintukan/DateTimePicker'
+
+        version {
+            name = '1.0'
+            released = new Date()
+            vcsTag = '1.0'
+        }
+    }
 }
 
 android {
